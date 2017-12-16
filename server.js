@@ -4,6 +4,11 @@ const fs = require('fs');
 
 const app = express();
 
+//for Heroku
+
+const port = process.env.PORT || 8080;
+
+
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
@@ -41,6 +46,6 @@ app.get('/about', (req, res) => {
 });
 
 
-app.listen(8080, () => {
-    console.log('server up');
+app.listen(port, () => {
+    console.log('server up on port', port);
 });
